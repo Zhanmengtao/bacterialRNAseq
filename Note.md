@@ -84,19 +84,19 @@ Result:
 
 Note: 
 
-# trim adaptor (這個dataset不需要)
-# filter low complexity reads (這個dataset不需要)
-# trim polyA-tails (原核沒有polyA tails)
-# GC content (can't remove by Preprocessing, 原核會稍微偏高)
-# [remove E coli. sequences, sequences contamination] (不確定需不需要) 
-# remove low quality base reads (去除Q-score平均低於25的reads), read average quality < 25 filter (AVGQUAL:25)
-# Read length control (短於50bp的read去除), filter length < 50bp read (MINLEN:50)
-# sequence specific bias caused by random hexamer (去除5'end的第一個base以校正), remove the first 5' base (HEADCROP:1)
-# 3' end when the base quality < 25 trim (TRAILING:25)
-# 3' start when the base quality < 25 trim (LEADING:25)
-# slidingwindow 3-based < 20 mean read quality (SLIDINGWINDOW:3:20)
-# remove PCR artifacts (去除發生150次以上的duplicates 不去除太低的以避免破壞gene expression的dynamics), (-derep 1 -derep_min 150) (不確定需不需要)
-# filter the read has Ambiguous Base (去除同一條read出現兩個以上Ns base), (-ns_max_n 2) (不確定需不需要)
+	trim adaptor (原始資料已完成) 
+	filter low complexity reads (不需要)
+	trim polyA-tails (原核沒有polyA tails)     
+	GC content (Can't remove by Preprocessing, 原核會稍微偏高)
+	remove sequences contamination (不確定需不需要) 
+	remove low quality base reads (去除Q-score平均低於25的reads), read average quality < 25 filter (AVGQUAL:25)
+	Read length control (短於50bp的read去除), filter length < 50bp read (MINLEN:50)
+	sequence specific bias caused by random hexamer (去除5'end的第一個base以校正), remove the first 5' base (HEADCROP:1)
+	3' end when the base quality < 25 trim (TRAILING:25)
+	3' start when the base quality < 25 trim (LEADING:25)
+	slidingwindow 3-based < 20 mean read quality (SLIDINGWINDOW:3:20)
+	remove PCR artifacts (去除發生150次以上的duplicates 不去除太低的以避免破壞gene expression的dynamics), (-derep 1 -derep_min 150) (不確定需不需要)
+	filter the read has Ambiguous Base (去除同一條read出現兩個以上Ns base), (-ns_max_n 2) (不確定需不需要)
 
 
 ----------------------------------------------------------------------------
